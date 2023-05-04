@@ -1,0 +1,95 @@
+<!-- <div class="container">
+  <h2>Log-out Page</h2>
+  <p>
+    TO log-out from our flowers Store:
+    <button
+      class="btn btn-danger btn-lg"
+      (click)="userLogout()"
+      [disabled]="!auth"
+    >
+      Logout
+    </button>
+  </p>
+  <p>
+    TO log-in to our flowers Store:
+    <button
+      class="btn btn-primary btn-lg"
+      (click)="goLogin()"
+      [disabled]="auth"
+    >
+      Login Page
+    </button>
+  </p>
+</div> -->
+
+<!-- ------------------------------------------ -->
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div
+        class="col-md-9 col-lg-6 col-xl-5 h-75 d-flex justify-content-center align-items-center"
+      >
+        <!-- src="https://img.icons8.com/nolan/512/epic-games.png"
+          class="img-fluid"
+          alt="Sample image" col-xl-5 w-75-->
+        <img
+          src="https://cdn2.unrealengine.com/Epic+Games+Node%2Fxlarge_whitetext_blackback_epiclogo_504x512_1529964470588-503x512-ac795e81c54b27aaa2e196456dd307bfe4ca3ca4.jpg"
+          class="img-fluid w-50 w-lg-100 h-100 align-self-center mt-lg-5"
+          alt="Sample image"
+          style="width: 75% !important"
+        />
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+          <div class="d-flex justify-content-between align-items-center"></div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button
+              class="btn btn-lg bg-dark text-white m-2"
+              (click)="userLogout()"
+              [disabled]="!auth"
+            >
+              <!-- btn-danger style="background-color: plum" btn-primary-->
+              Logout
+            </button>
+            <button
+              class="btn bg-dark text-white btn-lg m-2"
+              (click)="goLogin()"
+              [disabled]="auth"
+            >
+              Login Page
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5"
+  >
+    <div>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="#!" class="text-white">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </div>
+</section>
+
+<!--  -->
+<!-- <button class="btn btn-primary" (click)="userLogin()" [disabled]="auth">
+  Login
+</button>
+<button class="btn btn-danger" (click)="userLogout()" [disabled]="!auth">
+  Logout
+</button> -->

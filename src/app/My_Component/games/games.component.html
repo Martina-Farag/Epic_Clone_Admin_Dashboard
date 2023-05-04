@@ -1,0 +1,158 @@
+<!-- Select Category -->
+<div class="d-flex">
+  <h2 style="margin-right: 13px">Select Category</h2>
+  <select
+    name="cat"
+    id="cat"
+    class="form-control"
+    style="width: 150px"
+    [(ngModel)]="selectedCatID"
+    (change)="selectCat()"
+  >
+    <option value="0">All</option>
+    <option *ngFor="let cat of categoryList" [value]="cat._id">
+      {{ cat.name }}
+    </option>
+  </select>
+</div>
+
+<!-- Search For Game -->
+<h3 class="mt-3">Search For Game</h3>
+<section class="mb-5 w-100">
+  <!-- className="mb-3" -->
+  <section class="d-flex">
+    <Button
+      class="border border-secondary rounded-start"
+      variant="outline-secondary"
+      id="search1"
+      (click)="search()"
+    >
+      <!-- <i class="bi bi-search"></i> -->
+      <!-- <i class="fas fa-search"></i> -->
+      <i class="fa fa-search mx-2" style="font-size: 20px"></i>
+    </Button>
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Search"
+      aria-label="Search"
+      aria-describedby="search"
+      style="width: 35%; border-radius: 0 0.375rem 0.375rem 0"
+      [(ngModel)]="GameName"
+    />
+  </section>
+
+  <!-- search2 -->
+  <!-- <div class="input-group rounded">
+    <input
+      type="search"
+      class="form-control rounded"
+      placeholder="Search"
+      aria-label="Search"
+      aria-describedby="search"
+      style="width: 20%"
+      [(ngModel)]="GameName"
+    />
+    <span class="input-group-text border-0" id="search" (click)="search()">
+      <i class="fas fa-search"></i>
+    </span>
+  </div> -->
+
+  <div
+    class="alert alert-danger h-25"
+    style="width: 36.5%"
+    [hidden]="!not_Found"
+  >
+    <small>Game Not Found</small>
+  </div>
+</section>
+
+<!-- Display Games -->
+<table class="table w-100">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col" class="img_t">Image</th>
+      <th scope="col">Price</th>
+      <th scope="col">Details</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container
+      id="prd"
+      *ngFor="let product of productsList; let i = index; trackBy: trackPrdFunc"
+    >
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.gameName | uppercase }}</td>
+        <!-- uppercase : built in pipe -->
+        <td class="w-25 img_t">
+          <div class="w-75" style="display: flex; justify-content: center">
+            <!-- ShadowBox="pink" -->
+            <!-- ShadowBox is our directive , pink is the parameter value we sends to BGColor in directive -->
+            <img
+              [src]="product.Photos"
+              class="w-80"
+              height="80px"
+              style="object-fit: fill"
+              alt="{{ product.gameName }} Image"
+            />
+          </div>
+
+          <!-- <h5 *ngIf="product.IsPurshased" style="color: rgb(59, 113, 228)">
+            Thanks for purchasing from our Store {{ ClientName }}
+          </h5> -->
+        </td>
+
+        <!-- <ng-container [ngSwitch]="product.Quantity">
+          <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+          <ng-container *ngSwitchCase="1">Last one item</ng-container>
+          <ng-container *ngSwitchCase="2">Last 2 items</ng-container>
+          <ng-container *ngSwitchDefault>{{ product.Quantity }}</ng-container>
+        </ng-container> -->
+
+        <td>
+          <span> {{ product.Price | myCurrency }} </span>
+          <!-- <span> {{ product._id }} </span> -->
+
+          <!-- <span *ngIf="product.Price != undefined">
+            {{ product.Price | currency : "USD" : "symbol" }}
+          </span> -->
+        </td>
+        <!-- currency : built in pipe || myCurrency : custom pipe -->
+
+        <td>
+          <!-- 64342a8a4f099df3643baed2 -->
+          <button
+            class="btn bg-secondary text-white"
+            routerLink="Products/{{ product._id }}"
+          >
+            Details
+          </button>
+        </td>
+        <!-- <td>
+          <button
+            class="btn btn-danger"
+            (click)="IsSold(i, product.Price, itemsCount.value)"
+          >
+            Add To Cart
+          </button>
+        </td> -->
+        <td>
+          <!-- (click)="EditProduct(i, product)" -->
+          <button class="btn btn-warning" routerLink="Edit/{{ product._id }}">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="DeleteProduct(i, product)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

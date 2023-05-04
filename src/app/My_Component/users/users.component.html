@@ -1,0 +1,44 @@
+<table class="table">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <!-- <th scope="col">Quantity</th> -->
+      <!-- Day 3 -->
+      <!-- <th scope="col">Count</th> -->
+      <th scope="col">Details</th>
+      <!-- <th scope="col">Buy</th> -->
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container
+      id="prd"
+      *ngFor="let user of usersList; let i = index; trackBy: trackPrdFunc"
+    >
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.firstName | uppercase }}</td>
+        <!-- uppercase : built in pipe -->
+
+        <td>{{ user.email }}</td>
+
+        <td>
+          <button
+            class="btn bg-secondary text-white"
+            routerLink="UsersDetails/{{ user._id }}"
+          >
+            Details
+          </button>
+        </td>
+
+        <td>
+          <button class="btn btn-danger" (click)="DeleteUser(i, user)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

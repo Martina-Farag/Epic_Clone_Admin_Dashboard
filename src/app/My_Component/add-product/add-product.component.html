@@ -1,0 +1,573 @@
+<!-- 14
+  
+_id
+64471e6538cfe12d3c53b2ab
+gameName
+"addedGame"
+Description
+"xxxxxxxxxxxxxxxxx"
+platForm
+"windows"
+Developer
+"xxx"
+mostPopular
+false
+topSeller
+false
+mostPlayed
+false
+publisherName
+"xxx"
+
+Photos
+"https://img.freepik.com/free-vector/joystick-game-sport-technology_138…"
+VideoURL
+"https://img.freepik.com/free-vector/joystick-game-sport-technology_138…"
+Rating
+2.2
+Price
+"free"
+
+Genres 
+Array
+createdAt
+2023-04-25T00:27:18.062+00:00
+updatedAt
+2023-04-25T00:27:18.062+00:00
+__v
+0
+  ///////////////////////////
+  id : number,
+    gameName : string,
+    Description : string,
+    // Price : number,
+    // Img ?: string,   // (?) : not required 
+    // CategoryID : number,
+    // IsPurshased: boolean,
+    Count ?: number,
+    IsDeleted ?: boolean
+    
+    Developer: string,
+    mostPopular: false,
+    topSeller: true,
+    mostPlayed: false,
+    Photos: [],
+    VideoURL: string,
+    Rating: number,
+    Price: number,
+    Genres: [],                 //////////////////////
+    createdAt: string,
+    updatedAt: string,
+    platForm: string,
+    publisherName: string,
+    Discription_ar: string                  //////////////////////
+ -->
+
+<!-- Add Product -->
+<section class="center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-10 col-md-8 ml-auto">
+        <div class="row align-items-center pt-md-5 mt-md-5 mb-5">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-title text-center mt-3">
+                <h3>Add Game</h3>
+              </div>
+              <div class="card-body">
+                <form #produtForm="ngForm" (ngSubmit)="AddProduct()">
+                  <!-- Name -->
+                  <div class="mb-3">
+                    <label for="productname" class="form-label"
+                      ><h4>Game Name:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdNameInput="ngModel"
+                      class="form-control"
+                      id="productname"
+                      name="productname"
+                      placeholder="Enter Product Name"
+                      #name
+                      [(ngModel)]="product.gameName"
+                      required
+                      pattern="[A-Za-z]{3,}"
+                      [class.is-valid]="prdNameInput.valid"
+                      [class.is-invalid]="prdNameInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="prdNameInput.valid || prdNameInput.untouched"
+                    >
+                      <small *ngIf="prdNameInput.errors?.['required']"
+                        >Product Name Can't Be Empty</small
+                      >
+                      <small *ngIf="prdNameInput.errors?.['pattern']"
+                        >Product name Can't Be less than 3 letters.</small
+                      >
+                      <!-- Product Name Can't Be Empty or less than 3 letters -->
+                    </div>
+                  </div>
+
+                  <!-- Description -->
+                  <div class="mb-3">
+                    <label for="productDescription" class="form-label"
+                      ><h4>Description:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdDescriptionInput="ngModel"
+                      class="form-control"
+                      id="productDescription"
+                      name="productDescription"
+                      placeholder="Enter Product Description"
+                      #Description
+                      [(ngModel)]="product.Description"
+                      required
+                      [class.is-valid]="prdDescriptionInput.valid"
+                      [class.is-invalid]="prdDescriptionInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="
+                        prdDescriptionInput.valid ||
+                        prdDescriptionInput.untouched
+                      "
+                    >
+                      <small *ngIf="prdDescriptionInput.errors?.['required']"
+                        >Product Description Can't Be Empty</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Description_ar -->
+                  <div class="mb-3">
+                    <label for="productDiscription_ar" class="form-label"
+                      ><h4>Arabic Description:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdDiscription_arInput="ngModel"
+                      class="form-control"
+                      id="productDiscription_ar"
+                      name="productDiscription_ar"
+                      placeholder="Enter Product Arabic Description"
+                      #Discription_ar
+                      [(ngModel)]="product.Discription_ar"
+                      required
+                      pattern="^[\u0621-\u064A0-9 ]+$"
+                      [class.is-valid]="prdDiscription_arInput.valid"
+                      [class.is-invalid]="prdDiscription_arInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="
+                        prdDiscription_arInput.valid ||
+                        prdDiscription_arInput.untouched
+                      "
+                    >
+                      <small *ngIf="prdDiscription_arInput.errors?.['required']"
+                        >Product Arabic Discription Can't Be Empty</small
+                      >
+                      <small *ngIf="prdDiscription_arInput.errors?.['pattern']"
+                        >Product Arabic Discription Can't Contain English
+                        letters.</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Developer -->
+                  <div class="mb-3">
+                    <label for="productDeveloper" class="form-label"
+                      ><h4>Developer:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdDeveloperInput="ngModel"
+                      class="form-control"
+                      id="productDeveloper"
+                      name="productDeveloper"
+                      placeholder="Enter Product Developer"
+                      #Developer
+                      [(ngModel)]="product.Developer"
+                      required
+                      pattern="[A-Za-z]{3,}"
+                      [class.is-valid]="prdDeveloperInput.valid"
+                      [class.is-invalid]="prdDeveloperInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="
+                        prdDeveloperInput.valid || prdDeveloperInput.untouched
+                      "
+                    >
+                      <small *ngIf="prdDeveloperInput.errors?.['required']"
+                        >Product Developer Can't Be Empty</small
+                      >
+                      <small *ngIf="prdDeveloperInput.errors?.['pattern']"
+                        >Product Developer Can't Be less than 3 letters.</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- publisherName -->
+                  <div class="mb-3">
+                    <label for="productpublisherName" class="form-label"
+                      ><h4>Publisher Name:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdpublisherNameInput="ngModel"
+                      class="form-control"
+                      id="productpublisherName"
+                      name="productpublisherName"
+                      placeholder="Enter Product publisherName"
+                      #publisherName
+                      [(ngModel)]="product.publisherName"
+                      required
+                      pattern="[A-Za-z]{2,}"
+                      [class.is-valid]="prdpublisherNameInput.valid"
+                      [class.is-invalid]="prdpublisherNameInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="
+                        prdpublisherNameInput.valid ||
+                        prdpublisherNameInput.untouched
+                      "
+                    >
+                      <small *ngIf="prdpublisherNameInput.errors?.['required']"
+                        >Product Publisher Name Can't Be Empty</small
+                      >
+                      <small *ngIf="prdpublisherNameInput.errors?.['pattern']"
+                        >Product Publisher Name Can't Be less than 2
+                        letters.</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- mostPopular -->
+                  <div class="mb-3">
+                    <h4 class="m-2">Most Popular:</h4>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="mostPopular"
+                        id="mostPopular1"
+                        value="true"
+                        [(ngModel)]="product.mostPopular"
+                      />
+                      <label class="form-check-label" for="mostPopular1">
+                        True
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="mostPopular"
+                        id="mostPopular2"
+                        value="false"
+                        checked
+                        [(ngModel)]="product.mostPopular"
+                      />
+                      <label class="form-check-label" for="mostPopular2">
+                        False
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- topSeller -->
+                  <div class="mb-3">
+                    <h4 class="m-2">Top Seller:</h4>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="topSeller"
+                        id="topSeller1"
+                        value="true"
+                        [(ngModel)]="product.topSeller"
+                      />
+                      <label class="form-check-label" for="topSeller1">
+                        True
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="topSeller"
+                        id="topSeller2"
+                        value="false"
+                        checked
+                        [(ngModel)]="product.topSeller"
+                      />
+                      <label class="form-check-label" for="topSeller2">
+                        False
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- mostPlayed -->
+                  <div class="mb-3">
+                    <h4 class="m-2">Most Played:</h4>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="mostPlayed"
+                        id="mostPlayed1"
+                        value="true"
+                        [(ngModel)]="product.mostPlayed"
+                      />
+                      <label class="form-check-label" for="mostPlayed1">
+                        True
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="mostPlayed"
+                        id="mostPlayed2"
+                        value="false"
+                        checked
+                        [(ngModel)]="product.mostPlayed"
+                      />
+                      <label class="form-check-label" for="mostPlayed2">
+                        False
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- platForm -->
+                  <div class="mb-3">
+                    <h4 class="m-2">PlatForm:</h4>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="platForm"
+                        id="platForm1"
+                        value="windows"
+                        [(ngModel)]="product.platForm"
+                      />
+                      <label class="form-check-label" for="platForm1">
+                        windows
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="platForm"
+                        id="platForm2"
+                        value="mac"
+                        checked
+                        [(ngModel)]="product.platForm"
+                      />
+                      <label class="form-check-label" for="platForm2">
+                        mac
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Price -->
+                  <div class="mb-3">
+                    <label for="productPrice" class="form-label"
+                      ><h4>Price:</h4></label
+                    >
+                    <input
+                      type="text"
+                      #prdPriceInput="ngModel"
+                      class="form-control"
+                      id="productPrice"
+                      name="productPrice"
+                      placeholder="Enter Product Price"
+                      #Price
+                      [(ngModel)]="product.Price"
+                      required
+                      pattern="([+-]?([0-9]*[.])?[0-9]+|free)"
+                      [class.is-valid]="prdPriceInput.valid"
+                      [class.is-invalid]="prdPriceInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="prdPriceInput.valid || prdPriceInput.untouched"
+                    >
+                      <small *ngIf="prdPriceInput.errors?.['required']"
+                        >Product Price Can't Be Empty</small
+                      >
+                      <small *ngIf="prdPriceInput.errors?.['pattern']"
+                        >Product Price is Number or 'free' Only</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Rating -->
+                  <div class="mb-3">
+                    <label for="productRating" class="form-label"
+                      ><h4>Rate:</h4></label
+                    >
+                    <input
+                      type="number"
+                      #prdRatingInput="ngModel"
+                      class="form-control"
+                      id="productRating"
+                      name="productRating"
+                      placeholder="Enter Product Rate"
+                      #Rating
+                      [(ngModel)]="product.Rating"
+                      required
+                      pattern="([+-]?([0-9]*[.])?[0-9]+)"
+                      [class.is-valid]="prdRatingInput.valid"
+                      [class.is-invalid]="prdRatingInput.invalid"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      [hidden]="
+                        prdRatingInput.valid || prdRatingInput.untouched
+                      "
+                    >
+                      <small *ngIf="prdRatingInput.errors?.['required']"
+                        >Product Rate Can't Be Empty</small
+                      >
+                      <small *ngIf="prdRatingInput.errors?.['pattern']"
+                        >Product Rate is Number Only</small
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Select Category: Genres -->
+                  <div class="mb-3">
+                    <label for="prdGenres"><h4>Select Genres:</h4></label>
+                    <select
+                      class="form-control"
+                      name="prdGenres"
+                      id="prdGenres"
+                      [(ngModel)]="product.Genres"
+                      required
+                    >
+                      <!-- [(ngModel)]="product.Genres" (change)="selectGenres(genres)" -->
+                      <option
+                        *ngFor="let cat of categoryList"
+                        [value]="cat._id"
+                        #Genres
+                      >
+                        {{ cat.name }}
+                      </option>
+                    </select>
+                  </div>
+
+                  <!-- Image -->
+                  <div class="mb-3">
+                    <label for="prdImage"><h4>Image URL:</h4></label>
+                    <input
+                      type="text"
+                      #prdPhotosInput="ngModel"
+                      class="form-control"
+                      id="prdImage"
+                      name="prdImage"
+                      placeholder="Enter Product Image"
+                      #img
+                      [(ngModel)]="product.Photos"
+                    />
+                  </div>
+                  <!--  -->
+                  <div>
+                    <div
+                      class="mb-3"
+                      *ngFor="let photo of product.Photos; let i = index"
+                    >
+                      <label for="photo{{ i + 1 }}" class="form-label"
+                        >Photo</label
+                      >
+                      <input
+                        type="text"
+                        #prdPhotosInput="ngModel"
+                        class="form-control"
+                        name="photo{{ i + 1 }}"
+                        id="photo{{ i + 1 }}"
+                        [class.is-valid]="prdPhotosInput.valid"
+                        [class.is-invalid]="prdPhotosInput.invalid"
+                        [(ngModel)]="product.Photos"
+                      />
+                      <!-- [(ngModel)]="user.MobileNo[i]" -->
+                      <!-- <div
+                        class="alert alert-danger"
+                        [hidden]="prdPhotosInput.valid || prdPhotosInput.untouched"
+                      >
+                        <small *ngIf="prdPhotosInput?.errors?.['required']"
+                          >Image URL is required</small
+                        >
+                      </div> -->
+                      <section style="display: flex">
+                        <button
+                          class="btn btn-primary ms-auto d-block"
+                          (click)="AddPhoto()"
+                          *ngIf="photo && i == product.Photos.length - 1"
+                        >
+                          +
+                        </button>
+                        <button
+                          class="btn btn-primary ms-auto d-block"
+                          (click)="RemovePhoto(i)"
+                          *ngIf="photo && i == product.Photos.length - 1 && i &gt; 0"
+                        >
+                          -
+                        </button>
+                      </section>
+                    </div>
+                  </div>
+
+                  <!-- video -->
+                  <div class="mb-3">
+                    <label for="prdVideoURL"><h4>Video URL:</h4></label>
+                    <input
+                      type="text"
+                      #prdVideoURLInput="ngModel"
+                      class="form-control"
+                      id="prdVideoURL"
+                      name="prdVideoURL"
+                      placeholder="Enter Product Video URL"
+                      #VideoURL
+                      [(ngModel)]="product.VideoURL"
+                    />
+                    <!-- <div class="alert alert-danger">
+                      File Format Not Supported
+                    </div> -->
+                  </div>
+
+                  <div class="d-flex">
+                    <button
+                      class="btn btn-success mt-5 mx-auto d-block"
+                      type="submit"
+                      style="margin-bottom: 2%"
+                      [disabled]="produtForm.invalid"
+                    >
+                      Add Game
+                    </button>
+
+                    <button
+                      class="btn btn-danger mt-5 mx-auto"
+                      type="button"
+                      style="margin-bottom: 2%"
+                      (click)="cancelBtn()"
+                    >
+                      Back
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

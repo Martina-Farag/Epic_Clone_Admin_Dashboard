@@ -1,0 +1,32 @@
+.card_Footer {
+    position: absolute;
+    width: 100% !important;
+    // top: 50px;
+    bottom: 10px;
+
+}
+.next_prev {
+    width: 308px !important;
+    // width: 100% !important;
+}
+// w-100 w-md-50
+@media screen and (max-width: 768px) {
+    
+    .card_Body {
+        width: 100% !important;
+    }
+    .card_Img{
+        width: 100% !important;
+    }
+    // .card_Footer {
+        // position: static;
+        // bottom: 10px;
+    // }
+
+}
+
+// @media (min-width: 768px) and (max-width: 1034px) {
+//     .next_prev {
+//         width: 308px !important;
+//     }
+// }

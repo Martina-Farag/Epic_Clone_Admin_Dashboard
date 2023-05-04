@@ -1,0 +1,128 @@
+{
+  "Categories": [
+    {
+      "id": 1,
+      "Name": "Red Flowers"
+    },
+    {
+      "id": 2,
+      "Name": "Purble Flowers"
+    },
+    {
+      "id": 3,
+      "Name": "Yellow Flowers"
+    }
+  ],
+  "Products": [
+    {
+      "id": 2,
+      "Name": "Lavender",
+      "Quantity": 5,
+      "Price": 100,
+      "Img": "https://www.gardenia.net/storage/app/public/uploads/images/pYXVfQVvUnEbqYSXMPAoFwtE208UkXoX0y2WpCUA.webp",
+      "CategoryID": 2,
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false
+    },
+    {
+      "id": 3,
+      "Name": "Sun Flower",
+      "Quantity": 0,
+      "Price": 40,
+      "Img": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3VuJTIwZmxvd2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "CategoryID": 3,
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false
+    },
+    {
+      "id": 4,
+      "Name": "Azalea",
+      "Quantity": 1,
+      "Price": 50,
+      "Img": "https://i.pinimg.com/originals/bf/4c/8a/bf4c8ab1c38433bbe30e969f93f39b8b.jpg",
+      "CategoryID": 3,
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false
+    },
+    {
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false,
+      "Name": "addedproduct",
+      "Quantity": 5,
+      "Price": 10,
+      "CategoryID": "2",
+      "Img": "https://www.petalrepublic.com/wp-content/uploads/2021/01/Allium-Allium.jpg",
+      "id": 5
+    },
+    {
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false,
+      "Name": "Myproduct",
+      "Quantity": 2,
+      "Price": 10,
+      "CategoryID": "2",
+      "Img": "https://www.petalrepublic.com/wp-content/uploads/2021/01/Allium-Allium.jpg",
+      "id": 6
+    },
+    {
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false,
+      "Name": "added2",
+      "Quantity": 2,
+      "Price": 10,
+      "CategoryID": "2",
+      "Img": "https://images.unsplash.com/photo-1591181520189-abcb0735c65d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVycGxlJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80",
+      "id": 7
+    },
+    {
+      "IsPurshased": false,
+      "Count": 0,
+      "IsDeleted": false,
+      "Name": "addedp",
+      "Quantity": 5,
+      "Price": 10,
+      "CategoryID": "2",
+      "Img": "https://images.unsplash.com/photo-1591181520189-abcb0735c65d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVycGxlJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80",
+      "id": 9
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "FullName": "Red Flowers",
+      "Email": "tina@gmail.com",
+      "MobileNo": [
+        "01234567891"
+      ],
+      "Address": {
+        "city": "San Francisco",
+        "street": "street1",
+        "code": 5
+      },
+      "Password": 123456
+    },
+    {
+      "FullName": "eeeee",
+      "Email": "tina@gmail.com",
+      "id": 2
+    },
+    {
+      "FullName": "eeeee",
+      "Email": "tina@gmail.com",
+      "id": 3
+    },
+    {
+      "FullName": "tina2",
+      "Email": "tina@gmail.com",
+      "Password": "123456",
+      "MobileNo": 12345678901,
+      "id": 4
+    }
+  ]
+}

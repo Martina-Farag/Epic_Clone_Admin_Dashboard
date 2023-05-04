@@ -1,0 +1,347 @@
+<h3>Dashboard</h3>
+<div class="row">
+  <!-- Games Card -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+              Games
+            </div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                  {{ productsList.length }}%
+                </div>
+              </div>
+              <div class="col">
+                <div class="progress progress-sm mr-2">
+                  <div
+                    class="progress-bar bg-info"
+                    role="progressbar"
+                    [ngStyle]="{ 'width.%': productsList.length }"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <!-- <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> -->
+            <i class="bi bi-controller text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Users Card -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-warning shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div
+              class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+            >
+              Users
+            </div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                  {{ usersList.length }}%
+                </div>
+              </div>
+              <div class="col">
+                <!-- style="width: 20%" -->
+                <div class="progress progress-sm mr-2">
+                  <div
+                    class="progress-bar bg-warning"
+                    role="progressbar"
+                    [ngStyle]="{ 'width.%': usersList.length }"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <!-- <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> -->
+            <i class="bi bi-people text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Games Coast Card -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div
+              class="text-xs font-weight-bold text-success text-uppercase mb-1"
+            >
+              Total Games Coast
+            </div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">
+              ${{ gamesTotalPrice }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <!-- <i class="fas fa-calendar fa-2x text-gray-300"></i> -->
+            <i class="bi bi-currency-dollar text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Earnings Card  -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-danger shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div
+              class="text-xs font-weight-bold text-danger text-uppercase mb-1"
+            >
+              Total Earnings
+            </div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">
+              ${{ totalEarnings | ceil }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <!-- <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> -->
+            <i class="bi bi-currency-dollar text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- chart 1 -->
+<!-- <div class="row">
+  <div class="col-xl-8 col-lg-7">
+    //Area Chart
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <canvas id="myAreaChart"></canvas>
+        </div>
+        <hr />
+        Styling for the area chart can be found in the
+        <code>/js/demo/chart-area-demo.js</code> file.
+      </div>
+    </div>
+
+    // Bar Chart/
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-bar">
+          <canvas id="myBarChart"></canvas>
+        </div>
+        <hr />
+        Styling for the bar chart can be found in the
+        <code>/js/demo/chart-bar-demo.js</code> file.
+      </div>
+    </div>
+  </div>
+
+  // Donut Chart 
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-4">
+      // Card Header - Dropdown 
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+      </div>
+      // Card Body 
+      <div class="card-body">
+        <div class="chart-pie pt-4">
+          <canvas id="myPieChart"></canvas>
+        </div>
+        <hr />
+        Styling for the donut chart can be found in the
+        <code>/js/demo/chart-pie-demo.js</code> file.
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- chart 2 -->
+<!-- Total Revenue -->
+<!-- <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+  <div class="card">
+    <div class="row row-bordered g-0">
+      <div class="col-md-8">
+        <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
+        <div id="totalRevenueChart" class="px-2"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <div class="text-center">
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-primary dropdown-toggle"
+                type="button"
+                id="growthReportId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                2022
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="growthReportId"
+              >
+                <a class="dropdown-item" href="javascript:void(0);">2021</a>
+                <a class="dropdown-item" href="javascript:void(0);">2020</a>
+                <a class="dropdown-item" href="javascript:void(0);">2019</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="growthChart"></div>
+        <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
+
+        <div
+          class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between"
+        >
+          <div class="d-flex">
+            <div class="me-2">
+              <span class="badge bg-label-primary p-2"
+                ><i class="bx bx-dollar text-primary"></i
+              ></span>
+            </div>
+            <div class="d-flex flex-column">
+              <small>2022</small>
+              <h6 class="mb-0">$32.5k</h6>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="me-2">
+              <span class="badge bg-label-info p-2"
+                ><i class="bx bx-wallet text-info"></i
+              ></span>
+            </div>
+            <div class="d-flex flex-column">
+              <small>2021</small>
+              <h6 class="mb-0">$41.2k</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--/ Total Revenue -->
+
+<!-- chart 3 -->
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="card card-chart">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-6 text-left">
+            <h5 class="card-category">Total Shipments</h5>
+            <h2 class="card-title">Performance</h2>
+          </div>
+          <div class="col-sm-6">
+            <div
+              class="btn-group btn-group-toggle float-right"
+              data-toggle="buttons"
+            >
+              <label
+                class="btn btn-sm btn-danger btn-simple"
+                (click)="
+                  data = datasets[0];
+                  updateOptions();
+                  clicked = true;
+                  clicked1 = false;
+                  clicked2 = false
+                "
+                [ngClass]="{ active: clicked === true }"
+              >
+                <input checked="checked" name="options" type="radio" />
+
+                <span
+                  class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  Accounts
+                </span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-single-02"> </i>
+                </span>
+              </label>
+              <label
+                class="btn btn-sm btn-danger btn-simple"
+                (click)="
+                  data = datasets[1];
+                  updateOptions();
+                  clicked = false;
+                  clicked1 = true;
+                  clicked2 = false
+                "
+                [ngClass]="{ active: clicked1 === true }"
+              >
+                <input class="d-none d-sm-none" name="options" type="radio" />
+
+                <span
+                  class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  Purchases
+                </span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-gift-2"> </i>
+                </span>
+              </label>
+              <label
+                class="btn btn-sm btn-danger btn-simple"
+                (click)="
+                  data = datasets[2];
+                  updateOptions();
+                  clicked = false;
+                  clicked1 = false;
+                  clicked2 = true
+                "
+                [ngClass]="{ active: clicked2 === true }"
+              >
+                <input class="d-none" name="options" type="radio" />
+
+                <span
+                  class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  Sessions
+                </span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-tap-02"> </i>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-area"><canvas id="chartBig1"> </canvas></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- chart 4 -->
+<!-- <app-dashboard></app-dashboard> -->

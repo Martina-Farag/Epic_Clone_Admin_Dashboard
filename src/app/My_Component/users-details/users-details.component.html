@@ -1,0 +1,47 @@
+<div class="card" style="width: 25rem; height: 16rem">
+  <!-- <img [src]="user?.firstName" class="card-img-top" alt="..." /> -->
+  <div class="card-body">
+    <h5 class="card-title">
+      Name:
+      <span class="text-muted">{{ user.firstName }} {{ user.lastName }}</span>
+    </h5>
+    <div>
+      <h6 class="card-subtitle mb-2">
+        Email: <span class="text-muted">{{ user.email }}</span>
+      </h6>
+      <h6 class="card-text">
+        Country: <span class="text-muted">{{ user.country }}</span>
+      </h6>
+      <h6 class="card-text">
+        Purchase Quantity:
+        <span class="text-muted">{{ user.purchaseHistory.length }}</span>
+      </h6>
+      <h6 class="card-text">
+        Total User Transactions:
+        <span class="text-muted">{{ userTransactions | ceil }}$</span>
+      </h6>
+    </div>
+  </div>
+  <button type="button" class="btn btn-secondary" (click)="back()">
+    Go Back
+  </button>
+
+  <div style="display: flex" class="w-100">
+    <button
+      type="button"
+      class="btn btn-info text-white w-50"
+      (click)="Previous()"
+      [disabled]="currentUserID == userIDList[0]"
+    >
+      Previous
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary w-50"
+      (click)="Next()"
+      [disabled]="currentUserID == userIDList[userIDList.length - 1]"
+    >
+      Next
+    </button>
+  </div>
+</div>
